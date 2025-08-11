@@ -1,9 +1,10 @@
 import React from 'react';
-import Sidebar from '@/components/Sidebar';
 import {getPredictions} from '@/app/apis/services/prediction';
 import Link from 'next/link';
+
 import BookmakersTable from '@/components/bookmakers/BookmakersTable';
 export async function generateMetadata() {
+  
   const data = await getPredictions(1, 50);
   const {items} = data;
   return {

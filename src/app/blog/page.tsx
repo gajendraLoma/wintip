@@ -1,34 +1,85 @@
 import React from "react";
+import { Metadata } from 'next';
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import BigImageBlogSection from "@/components/blog/BigImageBlogSection";
 import GridViewSection from "@/components/blog/GridViewSection";
 import ListViewSection from "@/components/blog/ListViewSection";
-
 import Pagination from "@/components/videos/Pagination";
+export async function generateMetadata(): Promise<Metadata> {
+  // Placeholder for fetching real API data later
+  const apiData = await fetchBlogData();
 
-export async function generateMetadata() {
-  const meta = {
-    title: "Best Soccer Predictions Today – Expert Stats & Winning Tips!",
-    description:
-      "Stay updated with the latest soccer predictions, match analysis, bookmaker reviews, and precise head-to-head predictions for today and tomorrow! Curated by experts at Wintips.",
+  return {
+    title: apiData?.title || 'Blog',
+    description: apiData?.description || 'Wintips.',
+    robots: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+      minimumScale: 1,
+      userScalable: false,
+    },
     openGraph: {
-      title: "Best Soccer Predictions Today – Expert Stats & Winning Tips!",
-      description:
-        "Stay updated with the latest soccer predictions, match analysis, bookmaker reviews, and precise head-to-head predictions for today and tomorrow! Curated by experts at Wintips.",
-      url: "https://wintips.com/predictions",
-      siteName: "Wintips",
-      locale: "en_US",
-      type: "website",
+      title: apiData?.ogTitle || 'Blog',
+      description: apiData?.ogDescription || 'Wintips.',
+      images: [
+        {
+          url: apiData?.ogImage || 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+          width: 800,
+          height: 600,
+          alt: apiData?.ogImageAlt || 'Blog',
+        },
+      ],
+      url: 'https://wintips.com/blog/',
+      type: 'website',
     },
     twitter: {
-      card: "summary_large_image",
-      title: "Best Soccer Predictions Today – Expert Stats & Winning Tips!",
-      description:
-        "Stay updated with the latest soccer predictions, match analysis, bookmaker reviews, and precise head-to-head predictions for today and tomorrow! Curated by experts at Wintips.",
+      card: 'summary_large_image',
+      title: apiData?.twitterTitle || 'Blog',
+      description: apiData?.twitterDescription || 'Wintips.',
+      images: [
+        {
+          url: apiData?.twitterImage || 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+          width: 800,
+          height: 600,
+          alt: apiData?.twitterImageAlt || 'Blog',
+        },
+      ],
     },
+    icons: [
+      { url: '/logo32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo192.png', sizes: '192x192', type: 'image/png' },
+    ],
   };
-  return meta;
+}
+
+// Placeholder API fetch function (replace with your real endpoint)
+async function fetchBlogData() {
+  try {
+    // Simulate API call; replace with real endpoint like: await fetch('https://api.wintips.com/blog').then(res => res.json());
+    return {
+      title: 'Blog',
+      description: 'Wintips.',
+      ogTitle: 'Blog',
+      ogDescription: 'Wintips.',
+      ogImage: 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+      ogImageAlt: 'Blog',
+      twitterTitle: 'Blog',
+      twitterDescription: 'Wintips.',
+      twitterImage: 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+      twitterImageAlt: 'Blog',
+    };
+  } catch (error) {
+    console.error('Error fetching blog data:', error);
+    return {}; // Fallback to default values
+  }
 }
 
 export default function Blog() {
@@ -68,7 +119,7 @@ export default function Blog() {
       cover: "/images/volume-betting-tips-blog-card-list.webp",
     },
     {
-      title: "Essential live betting strategy tips for higher payouts",
+      title: "Essential live betting strategy tips for higher payout",
       desc: "Live betting, also known as in-play or in-game betting, has transformed the world of sports wagering. Instead of placing all...",
       cover: "/images/volume-betting-tips-blog-card-list.webp",
     },

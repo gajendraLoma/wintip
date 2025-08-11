@@ -23,7 +23,7 @@
     "freeTipsTitle": "Tips Bóng Đá Miễn Phí",
     "timeLeague": "Thời Gian/Giải Đấu",
     "match": "Trận Đấu",
-    "tips": "Tips",
+    "tips": "Mẹo",
     "odds": "Tỷ Lệ",
     "premiumSite": "Trang Premium",
     "result": "Kết Quả",
@@ -86,6 +86,8 @@
     "onlineBookmakerOdds": "Tỷ Lệ Trực Tuyến",
     "todayBookmakerOdds": "Tỷ Lệ Hôm Nay",
     "time": "Thời Gian",
+    "league": "Liên minh",
+    "rate":"Tỷ lệ",
     "handicap": "Kèo Chấp",
     "overUnder": "Tài/Xỉu",
     "oneXTwo": "1X2",
@@ -96,5 +98,20 @@
     "de": "Deutsch",
     "vi": "Vietname",
     "en": "English",
-    "label": "Language"
+    "label": "Language",
+    "mostPopular": "Phổ biến nhất",
+    "bonus": "Thưởng",
+    "mostRated": "Được đánh giá cao nhất",
+    "playerChoose": "Lựa chọn của người chơi",
+    "top": "Hàng đầu",
+    "bookmaker": "Nhà cái",
+    "reviews": "Đánh giá",
+    "rating": "Xếp hạng",
+    "links": "Liên kết",
+    "visitSite": "Truy cập trang web",
+    "review": "Đánh giá"
+
+
+  
+   
 }

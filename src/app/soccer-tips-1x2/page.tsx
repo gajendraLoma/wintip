@@ -4,8 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 export default function SoccerTips1x2() {
+  const t = useTranslations();
+
   const [tips] = useState([
     {
       time: "08/08 02:00",
@@ -95,13 +98,13 @@ export default function SoccerTips1x2() {
                   <table className="min-w-full divide-y divide-gray-200 text-sm">
                     <thead className="bg-gray-100 text-left font-semibold text-gray-700">
                       <tr>
-                        <th className="p-4 whitespace-nowrap">Time</th>
-                        <th className="p-4 whitespace-nowrap">League</th>
-                        <th className="p-4 whitespace-nowrap">Match</th>
-                        <th className="p-4 whitespace-nowrap">Tips</th>
-                        <th className="p-4 whitespace-nowrap">Odds</th>
-                        <th className="p-4 whitespace-nowrap">Rate</th>
-                        <th className="p-4 whitespace-nowrap">Status</th>
+                        <th className="p-4 whitespace-nowrap">{t("time")}</th>
+                        <th className="p-4 whitespace-nowrap">{t("league")}</th>
+                        <th className="p-4 whitespace-nowrap">{t("match")}</th>
+                        <th className="p-4 whitespace-nowrap">{t("tips")}</th>
+                        <th className="p-4 whitespace-nowrap">{t("odds")}</th>
+                        <th className="p-4 whitespace-nowrap">{t("rate")}</th>
+                        <th className="p-4 whitespace-nowrap">{t("status")}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
@@ -139,7 +142,7 @@ export default function SoccerTips1x2() {
 
                   {/* Add More button below the table */}
                   <div className="p-4 text-center text-[#228be6] font-medium hover:underline cursor-pointer">
-                    View More +
+              {t("viewMore")}
                   </div>
                 </div>
               </div>

@@ -93,7 +93,7 @@ export default function ListViewSection({ listMatches }) {
                     className="line-clamp-2 text-[16px] font-bold text-gray-800 transition-colors duration-300 group-hover:text-[#60a5fa]"
                     aria-label={`Go to details for ${item.title}`}
                   >
-                    {item.title}
+                <h3>{item.title}</h3>
                   </Link>
                   <p className="text-[15px] font-medium text-gray-800 mt-1 line-clamp-2">
                     {item.desc}

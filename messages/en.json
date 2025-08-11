@@ -85,6 +85,8 @@
     "onlineBookmakerOdds": "Online Odds",
     "todayBookmakerOdds": "Today's Odds",
     "time": "Time",
+    "league": "League",
+    "rate":"Rate",
     "handicap": "Handicap",
     "overUnder": "Over/Under",
     "oneXTwo": "1X2",
@@ -95,5 +97,17 @@
     "de": "Deutsch",
     "en": "English",
     "vi": "Vietname",
-    "label": "Sprache"
+    "label": "Sprache",
+    "mostPopular": "Most Popular",
+    "bonus": "Bonus",
+    "mostRated": "Most Rated",
+    "playerChoose": "Player choose",
+    "top": "Top",
+    "bookmaker": "Bookmaker",
+    "reviews": "Reviews",
+    "rating": "Rating",
+    "links": "Links",
+    "visitSite": "Visit Site",
+    "review": "Review"
+
 }

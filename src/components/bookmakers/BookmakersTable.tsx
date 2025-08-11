@@ -1,11 +1,13 @@
 'use client';
 
-import {useState} from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl'; // Assuming next-intl for translation
 
 export default function BookmakersTable() {
-  const [filter, setFilter] = useState('Most Popular');
+  const [filter, setFilter] = useState('mostPopular');
+  const t = useTranslations(); // Translation hook
 
   const data = [
     {
@@ -72,13 +74,13 @@ export default function BookmakersTable() {
 
   const sortedData = () => {
     switch (filter) {
-      case 'Most Popular':
+      case 'mostPopular':
         return [...data].sort((a, b) => b.votes - a.votes);
-      case 'Bonus':
+      case 'bonus':
         return [...data].sort((a, b) => b.bonusValue - a.bonusValue);
-      case 'Most Rated':
+      case 'mostRated':
         return [...data].sort((a, b) => b.rating - a.rating);
-      case 'Player choose':
+      case 'playerChoose':
         return data.filter((item) => item.playerChoice);
       default:
         return data;
@@ -90,7 +92,7 @@ export default function BookmakersTable() {
       <section className="rounded-lg overflow-hidden">
         {/* Filter buttons */}
         <div className="flex flex-wrap gap-3 p-4 border-b pl-0">
-          {['Most Popular', 'Bonus', 'Most Rated', 'Player choose'].map(
+          {['mostPopular', 'bonus', 'mostRated', 'playerChoose'].map(
             (btn) => (
               <button
                 key={btn}
@@ -101,7 +103,7 @@ export default function BookmakersTable() {
                     : ' text-gray-800 border-gray-300 hover:bg-blue-600 hover:text-[#fff]'
                 }`}
               >
-                {btn}
+                {t(btn)}
               </button>
             )
           )}
@@ -112,12 +114,12 @@ export default function BookmakersTable() {
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-gray-50 text-left text-xs font-semibold text-gray-500 border-b">
-                  <th className="p-3 w-[60px]">Top</th>
-                  <th className="p-3">Bookmaker</th>
-                  <th className="p-3">Bonus</th>
-                  <th className="p-3">Reviews</th>
-                  <th className="p-3">Rating</th>
-                  <th className="p-3">Links</th>
+                  <th className="p-3 w-[60px]">{t('top')}</th>
+                  <th className="p-3">{t('bookmaker')}</th>
+                  <th className="p-3">{t('bonus')}</th>
+                  <th className="p-3">{t('reviews')}</th>
+                  <th className="p-3">{t('rating')}</th>
+                  <th className="p-3">{t('links')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -201,11 +203,6 @@ export default function BookmakersTable() {
 
                     {/* Rating */}
                     <td className="p-3">
-                      {/* <div className="font-bold text-lg">{item.rating}/10</div>
-                  <div className="text-xs text-gray-500">
-                    {item.votes.toLocaleString()} votes
-                  </div> */}
-
                       <div className="flex w-full flex-col items-center gap-1">
                         {/* Rating Number */}
                         <div className="font-semibold">
@@ -311,13 +308,13 @@ export default function BookmakersTable() {
                         href="#"
                         className="flex items-center text-sm justify-center rounded-full bg-[#eaf4ff] max-md:px-[10px] max-md:py-[5px] max-xl:px-[10px] max-lg:w-max px-[40px] py-[5px] text-[#1877f2] transition-all duration-300 hover:bg-[#1877f2] hover:text-white"
                       >
-                        Visit Site
+                        {t('visitSite')}
                       </a>
                       <a
                         href="#"
                         className="transition-all text-sm duration-300 text-[#222222] hover:text-[#1877f2] no-underline"
                       >
-                        Review
+                        {t('review')}
                       </a>
                     </td>
                   </tr>
@@ -332,7 +329,7 @@ export default function BookmakersTable() {
               href={'/free-soccer-tips'}
               className="text-blue-600 hover:text-blue-800 font-medium"
             >
-              View More
+              {t('viewMore')}
             </Link>
           </div>
         </div>

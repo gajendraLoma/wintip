@@ -2,11 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export default function BettingThreeInOneSection() {
+  const t = useTranslations();
+
   const sections = [
     {
-      title: 'Betting Guide',
+      title: t("bettingGuide"),
       items: [
         {
           image: '/images/withdraw-beebet1.webp',
@@ -22,7 +25,7 @@ export default function BettingThreeInOneSection() {
       ]
     },
     {
-      title: 'Betting Experience',
+      title: t("bettingExperience"),
       items: [
         {
           image: '/images/withdraw-beebet2.webp',
@@ -39,7 +42,7 @@ export default function BettingThreeInOneSection() {
       ]
     },
     {
-      title: 'Betting News',
+      title: t("bettingNews"),
       items: [
         {
           image: '/images/withdraw-beebet3.webp',

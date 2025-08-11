@@ -33,7 +33,7 @@ export default function Hero() {
           <Link
             href="https://wintips.com/redirect?callbackUrl=/soccer-tips"
             target="_blank"
-            className="group relative inline-flex items-center gap-5 mb-10 mt-5 h-[35px] w-[150px] justify-center rounded-full font-bold text-base shadow-lg text-white transition-all duration-200 overflow-hidden"
+            className="group relative inline-flex items-center gap-5 mb-10 mt-5 h-[35px] w-[190px] justify-center rounded-full font-bold text-base shadow-lg text-white transition-all duration-200 overflow-hidden"
             style={{
               background:'linear-gradient(rgb(0, 102, 204) 0%, rgb(0, 82, 163) 50%, rgb(0, 61, 122) 100%)',
               border: '2px solid rgb(77, 148, 255)',
@@ -76,7 +76,7 @@ export default function Hero() {
                   textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px',
                 }}
               >
-                Join Now
+            {t("joinNow")}
               </span>
             </div>
           </Link>

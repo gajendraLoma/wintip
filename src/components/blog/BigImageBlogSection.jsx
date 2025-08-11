@@ -42,7 +42,7 @@ export default function BigImageBlogSection({ mainMatch, sidebarMatches }) {
             href={`/matches/${mainMatch.slug || ""}`}
             className="block px-4 py-3 text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-[#60a5fa]"
           >
-            {mainMatch.title}
+           <h3> {mainMatch.title}</h3>
           </Link>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function BigImageBlogSection({ mainMatch, sidebarMatches }) {
             href={`/matches/${sidebarMatches.slug || ""}`}
             className="block my-2 line-clamp-2 text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-[#60a5fa]"
           >
-            {sidebarMatches.title}
+         <h3>   {sidebarMatches.title}</h3>
           </Link>
           <Link
             href={`/matches/${sidebarMatches.slug || ""}`}
