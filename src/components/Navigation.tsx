@@ -16,6 +16,11 @@ export default function Navigation() {
     setOpenMenu(openMenu === menu ? null : menu);
   };
 
+  const closeNav = () => {
+    setIsOpen(false);
+    setOpenMenu(null);
+  };
+
   const soccerTipsSubItems = [
     { key: 'freeSoccerTips', href: '/free-soccer-tips', label: t('freeSoccerTips') },
     { key: 'soccerTips1x2', href: '/soccer-tips-1x2', label: t('soccerTips1x2') },
@@ -45,7 +50,7 @@ export default function Navigation() {
     <nav className="bg-blue-700 shadow-lg sticky top-0 z-50">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[70px]">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" onClick={closeNav}>
             <Image
               alt="Wintips logo"
               loading="lazy"
@@ -58,13 +63,13 @@ export default function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 text-white">
-            <Link href="/">{t('nav_home')}</Link>
-            <Link href="/soccer-tips-1x2">{t('nav_soccerTips')}</Link>
-            <Link href="/soccer-predictions">{t('nav_predictions')}</Link>
-            <Link href="/odds">{t('nav_bettingTool')}</Link>
-            <Link href="/bookmakers">{t('nav_bookmakers')}</Link>
-            <Link href="/videos">{t('nav_videos')}</Link>
-            <Link href="/blog">{t('nav_blog')}</Link>
+            <Link href="/" onClick={closeNav}>{t('nav_home')}</Link>
+            <Link href="/soccer-tips-1x2" onClick={closeNav}>{t('nav_soccerTips')}</Link>
+            <Link href="/soccer-predictions" onClick={closeNav}>{t('nav_predictions')}</Link>
+            <Link href="/odds" onClick={closeNav}>{t('nav_bettingTool')}</Link>
+            <Link href="/bookmakers" onClick={closeNav}>{t('nav_bookmakers')}</Link>
+            <Link href="/videos" onClick={closeNav}>{t('nav_videos')}</Link>
+            <Link href="/blog" onClick={closeNav}>{t('nav_blog')}</Link>
           </div>
 
           {/* Mobile Button */}
@@ -79,20 +84,20 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Side Drawer with Animation */}
+      {/* Mobile Side Drawer */}
       <div
         className={clsx(
           "fixed inset-0 z-50 flex",
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         )}
       >
-        {/* Overlay with fade animation */}
+        {/* Overlay */}
         <div
           className={clsx(
             "fixed inset-0 bg-black transition-opacity duration-300",
             isOpen ? "opacity-50" : "opacity-0"
           )}
-          onClick={() => setIsOpen(false)}
+          onClick={closeNav}
         ></div>
 
         {/* Drawer */}
@@ -104,7 +109,7 @@ export default function Navigation() {
         >
           {/* Close button */}
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={closeNav}
             className="absolute top-4 right-4 text-gray-400 hover:text-white transition"
           >
             <X className="w-6 h-6" />
@@ -131,13 +136,13 @@ export default function Navigation() {
 
           {/* Quick Links */}
           <div className="flex justify-between mt-4 text-sm">
-            <Link href="/football-highlights" className="flex flex-col items-center hover:text-blue-400 transition">
+            <Link href="/football-highlights" onClick={closeNav} className="flex flex-col items-center hover:text-blue-400 transition">
               ⚽ <span>{t('footballHighlights')}</span>
             </Link>
-            <Link href="/betting-bonus" className="flex flex-col items-center hover:text-blue-400 transition">
+            <Link href="/betting-bonus" onClick={closeNav} className="flex flex-col items-center hover:text-blue-400 transition">
               💰 <span>{t('bettingBonus')}</span>
             </Link>
-            <Link href="/hot-girl" className="flex flex-col items-center hover:text-blue-400 transition">
+            <Link href="/hot-girl" onClick={closeNav} className="flex flex-col items-center hover:text-blue-400 transition">
               🔥 <span>{t('hotGirls')}</span>
             </Link>
           </div>
@@ -153,18 +158,18 @@ export default function Navigation() {
             {openMenu === 'soccer' && (
               <div className="pl-4 space-y-1 animate-fadeIn">
                 {soccerTipsSubItems.map((item) => (
-                  <Link key={item.key} href={item.href} className="block py-1 text-sm hover:text-blue-400 transition">
+                  <Link key={item.key} href={item.href} onClick={closeNav} className="block py-1 text-sm hover:text-blue-400 transition">
                     {item.label}
                   </Link>
                 ))}
               </div>
             )}
 
-            <Link href="/soccer-predictions" className="block py-2 border-b border-gray-700 hover:text-blue-400 transition">
+            <Link href="/soccer-predictions" onClick={closeNav} className="block py-2 border-b border-gray-700 hover:text-blue-400 transition">
               {t('nav_predictions')}
             </Link>
 
-            <Link href="/odds" className="block py-2 border-b border-gray-700 hover:text-blue-400 transition">
+            <Link href="/odds" onClick={closeNav} className="block py-2 border-b border-gray-700 hover:text-blue-400 transition">
               {t('nav_bettingTool')}
             </Link>
 
@@ -177,7 +182,7 @@ export default function Navigation() {
             {openMenu === 'bookmakers' && (
               <div className="pl-4 space-y-1 animate-fadeIn">
                 {bookmakersSubItems.map((item) => (
-                  <Link key={item.key} href={item.href} className="block py-1 text-sm hover:text-blue-400 transition">
+                  <Link key={item.key} href={item.href} onClick={closeNav} className="block py-1 text-sm hover:text-blue-400 transition">
                     {item.label}
                   </Link>
                 ))}
@@ -193,7 +198,7 @@ export default function Navigation() {
             {openMenu === 'videos' && (
               <div className="pl-4 space-y-1 animate-fadeIn">
                 {videosSubItems.map((item) => (
-                  <Link key={item.key} href={item.href} className="block py-1 text-sm hover:text-blue-400 transition">
+                  <Link key={item.key} href={item.href} onClick={closeNav} className="block py-1 text-sm hover:text-blue-400 transition">
                     {item.label}
                   </Link>
                 ))}
@@ -209,7 +214,7 @@ export default function Navigation() {
             {openMenu === 'blog' && (
               <div className="pl-4 space-y-1 animate-fadeIn">
                 {blogSubItems.map((item) => (
-                  <Link key={item.key} href={item.href} className="block py-1 text-sm hover:text-blue-400 transition">
+                  <Link key={item.key} href={item.href} onClick={closeNav} className="block py-1 text-sm hover:text-blue-400 transition">
                     {item.label}
                   </Link>
                 ))}
