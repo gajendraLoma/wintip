@@ -31,9 +31,9 @@ export default function PredectionList() {
                 className="w-full h-full object-cover rounded-md"
               />
             </div>
-            <p className="text-sm sm:text-base font-medium text-gray-800 hover:text-[#60a5fa]">
+            <h3 className="text-sm sm:text-base font-medium text-gray-800 hover:text-[#60a5fa]">
               {title}, Prediction & Betting Tips
-            </p>
+            </h3>
           </div>
         ))}
       </div>

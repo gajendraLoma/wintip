@@ -260,7 +260,7 @@ const Odds = () => {
         <h1 className="text-2xl font-bold mb-2">
           Dropping Odds - Odds Analysis Prediction, Soccer Odds Analysis
         </h1>
-        <p className="text-gray-700 mb-6">
+        <h3 className="text-gray-700 mb-6">
           Football betting odds and supercomputers prediction are two useful
           tools for football bettors. These tools are developed based on the
           actual needs of players, helping you get the most accurate betting
@@ -272,7 +272,7 @@ const Odds = () => {
           Referring to today’s football betting odds combined with supercomputer
           prediction will help you increase your winning rate when participating
           in football betting.
-        </p>
+        </h3>
 
         {/* Odd data */}
         {isMobile ? (

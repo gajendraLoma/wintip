@@ -94,7 +94,7 @@ export default function SoccerPredictionsPage() {
               <h1 className="text-2xl font-bold mb-2">
                 Best Soccer Predictions Today – Expert Stats & Winning Tips!
               </h1>
-              <p className="text-gray-700 mb-6">
+              <h3 className="text-gray-700 mb-6">
                 <Link
                   href="https://www.wintips.com"
                   className="text-blue-600 hover:underline"
@@ -109,7 +109,7 @@ export default function SoccerPredictionsPage() {
                 smarter betting decisions. Explore high-quality football
                 predictions, optimize your betting strategy, and boost your
                 chances of winning today!
-              </p>
+              </h3>
 
               {/* Filters */}
               <div className="flex flex-wrap gap-2 mb-6">

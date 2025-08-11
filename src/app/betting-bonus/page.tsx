@@ -1,71 +1,43 @@
-import BookmakerCard from "../../components/BookmakerCard";
-import Link from "next/link";
-const BettingBonus = () => {
-  const bookmakers = [
-    {
-      rank: 1,
-      name: "W88",
-      logo: "/images/Banner-Home-Page3.webp",
-      rating: 5,
-      bonus: "Get 20%",
-      bonusDescription: "Up to $200 in Saba Sports",
-      backgroundColor: "bg-blue-500",
+import React from 'react';
+import {getPredictions} from '@/app/apis/services/prediction';
+import Link from 'next/link';
+import BettingBonusTable from '@/components/bookmakers/BettingBonusTable';
+export async function generateMetadata() {
+  const data = await getPredictions(1, 50);
+  const {items} = data;
+  return {
+    title: 'Best Soccer Predictions Today – Expert Stats & Winning Tips!',
+    description:
+      'Stay updated with the latest soccer predictions, match analysis, bookmaker reviews, and precise head-to-head predictions for today and tomorrow! Curated by experts at Wintips.',
+    openGraph: {
+      title: 'Best Soccer Predictions Today – Expert Stats & Winning Tips!',
+      description:
+        'Stay updated with the latest soccer predictions, match analysis, bookmaker reviews, and precise head-to-head predictions for today and tomorrow! Curated by experts at Wintips.',
+      url: 'https://wintips.com/predictions',
+      siteName: 'Wintips',
+      images: items.length > 0 ? [items[0].featureImage] : [],
+      locale: 'en_US',
+      type: 'website'
     },
-    {
-      rank: 2,
-      name: "Fun88",
-      logo: "/images/Banner-Home-Page3.webp",
-      rating: 5,
-      bonus: "Get 100%",
-      bonusDescription: "Up to $230 welcome bonus",
-      backgroundColor: "bg-orange-500",
-    },
-    {
-      rank: 3,
-      name: "FB88",
-      logo: "/images/Banner-Home-Page3.webp",
-      rating: 5,
-      bonus: "Get 100%",
-      bonusDescription: "Bonus up to $100 first deposit",
-      backgroundColor: "bg-green-500",
-    },
-    {
-      rank: 4,
-      name: "M88",
-      logo: "/images/Banner-Home-Page3.webp",
-      rating: 5,
-      bonus: "Get 150%",
-      bonusDescription: "Welcome bonus up to $210",
-      backgroundColor: "bg-gray-800",
-    },
-    {
-      rank: 5,
-      name: "BK8",
-      logo: "/images/Banner-Home-Page3.webp",
-      rating: 5,
-      bonus: "Get 100%",
-      bonusDescription: "Bonus up to $100 first deposit",
-      backgroundColor: "bg-blue-600",
-    },
-    {
-      rank: 26,
-      name: "Pinnacle",
-      logo: "/images/Banner-Home-Page3.webp",
-      rating: 5,
-      bonus: "Get 10%",
-      bonusDescription: "Cashback up to $200",
-      backgroundColor: "bg-gray-200",
-    },
-  ];
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Best Soccer Predictions Today – Expert Stats & Winning Tips!',
+      description:
+        'Stay updated with the latest soccer predictions, match analysis, bookmaker reviews, and precise head-to-head predictions for today and tomorrow! Curated by experts at Wintips.',
+      images: items.length > 0 ? [items[0].featureImage] : []
+    }
+  };
+}
 
+export default function BettingBonus() {
   return (
     <div className="flex-1 bg-gray-100">
       <div className="max-w-8xl mx-auto px-4 py-6">
         {/* Breadcrumb */}
         <nav className="flex text-sm text-gray-500 mb-2">
-             <Link href="/" className="text-blue-600 hover:underline">
-                  Wintips
-                </Link>
+          <Link href="/" className="text-blue-600 hover:underline">
+            Wintips
+          </Link>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -80,7 +52,10 @@ const BettingBonus = () => {
           >
             <path d="M9 6l6 6l-6 6"></path>
           </svg>
-          <span>Best Bookmaker Bonuses & Promotions – Daily Updated Deals</span>
+          <span>
+            {' '}
+            Best Bookmaker Bonuses & Promotions – Daily Updated Deals
+          </span>
         </nav>
 
         {/* Title & Description */}
@@ -100,46 +75,16 @@ const BettingBonus = () => {
             className="text-blue-600 hover:underline"
           >
             Wintips.com
-          </Link>{" "}
+          </Link>{' '}
           , we will not only provide you with the latest and most attractive
           promotion information, but also the promotions that are considered the
           most valuable for players.
         </p>
 
         {/* Table Header */}
-        <div className="mb-6">
-          <div className="hidden md:flex items-center p-4 bg-gray-50 border-b font-medium text-gray-700">
-            <div className="w-12">Top</div>
-            <div className="w-80">Bookmaker</div>
-            <div className="flex-1 px-6">Bonus</div>
-            <div className="w-32 text-center">Get Offer</div>
-          </div>
 
-          {/* Bookmaker List */}
-          <div className="divide-y divide-gray-100">
-            {bookmakers.map((bookmaker) => (
-              <BookmakerCard
-                key={bookmaker.rank}
-                rank={bookmaker.rank}
-                name={bookmaker.name}
-                rating={bookmaker.rating}
-                bonus={bookmaker.bonus}
-                bonusDescription={bookmaker.bonusDescription}
-                backgroundColor={bookmaker.backgroundColor}
-              />
-            ))}
-          </div>
-
-          {/* View More Button */}
-          <div className="p-4 text-center border-t">
-            <button className="text-blue-700 hover:underline">
-              View More +
-            </button>
-          </div>
-        </div>
+        <BettingBonusTable />
       </div>
     </div>
   );
-};
-
-export default BettingBonus;
+}

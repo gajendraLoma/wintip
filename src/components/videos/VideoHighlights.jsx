@@ -45,9 +45,9 @@ export default function VideoHighlights() {
           </div>
 
           {/* Title text */}
-          <p className="text-sm sm:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-[#60a5fa] line-clamp-2">
+          <h3 className="text-sm sm:text-base font-medium text-gray-800 transition-colors duration-300 group-hover:text-[#60a5fa] line-clamp-2">
             {title}, Prediction & Betting Tips
-          </p>
+          </h3>
         </Link>
       ))}
     </div>

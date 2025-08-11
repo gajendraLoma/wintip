@@ -38,9 +38,9 @@ export default function BigImageSection({ mainMatch, sidebarMatches }) {
           </div>
 
           {/* Title */}
-          <div className="px-4 py-3 text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-[#60a5fa]">
+          <h3 className="px-4 py-3 text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-[#60a5fa]">
             {mainMatch.title}
-          </div>
+          </h3>
         </Link>
       </div>
 
@@ -75,9 +75,9 @@ export default function BigImageSection({ mainMatch, sidebarMatches }) {
             </div>
 
             {/* Text */}
-            <p className="text-sm font-medium text-gray-900 leading-tight transition-colors duration-300 group-hover:text-[#60a5fa]">
+            <h3 className="text-sm font-medium text-gray-900 leading-tight transition-colors duration-300 group-hover:text-[#60a5fa]">
               {title}, Prediction & Betting Tips
-            </p>
+            </h3>
           </Link>
         ))}
       </div>

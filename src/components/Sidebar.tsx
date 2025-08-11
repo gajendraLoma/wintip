@@ -194,9 +194,9 @@ export default function Sidebar() {
                 </div>
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
+                <h3 className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
                   {video.title}
-                </p>
+                </h3>
               </div>
             </div>
           ))}
@@ -239,9 +239,9 @@ export default function Sidebar() {
                 </div>
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
+                <h3 className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
                   {video.title}
-                </p>
+                </h3>
               </div>
             </div>
           ))}
@@ -277,9 +277,9 @@ export default function Sidebar() {
               
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
+                <h3 className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
                   {video.title}
-                </p>
+                </h3>
               </div>
             </div>
           ))}
@@ -314,9 +314,9 @@ export default function Sidebar() {
              
               </div>
               <div className="flex-1">
-                <p className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
+                <h3 className="text-sm text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-2">
                   {video.title}
-                </p>
+                </h3>
               </div>
             </div>
           ))}

@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 const mockTips = [
   {
     time: "07/08 06:30",
@@ -108,7 +109,7 @@ export default function FreeTips() {
                   </div>
                 </td>
                 <td className="px-4 py-4">
-                  <span className="text-sm font-medium text-[#227ad3] hover:text-blue-800 cursor-pointer">
+                  <span className="text-sm font-medium text-[#227ad3] ">
                     {tip.tip}
                   </span>
                 </td>
@@ -119,12 +120,9 @@ export default function FreeTips() {
                 </td>
 
                 <td className="px-4 py-4">
-                  <a
-                    href="#"
-                    className="md:text-sm font-semibold text-[#227ad3] max-md:text-[12px]"
-                  >
+                  <span className="md:text-sm font-semibold text-[#227ad3] max-md:text-[12px]">
                     {tip.site}
-                  </a>
+                  </span>
 
                   <div className="flex items-center text-[#227ad3] text-sm ml-1">
                     {[...Array(tip.rating)].map((_, starIdx) => (
@@ -151,9 +149,9 @@ export default function FreeTips() {
       </div>
 
       <div className="px-6 py-4 bg-gray-50 text-center">
-        <button className="text-blue-600 hover:text-blue-800 font-medium">
+        <Link href={'/free-soccer-tips'} className="text-blue-600 hover:text-blue-800 font-medium">
           {t("viewMore")}
-        </button>
+        </Link>
       </div>
     </section>
   );

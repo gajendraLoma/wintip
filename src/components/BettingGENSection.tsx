@@ -1,58 +1,59 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BettingThreeInOneSection() {
   const sections = [
     {
-      title: "Betting Guide",
+      title: 'Betting Guide',
       items: [
         {
-          image: "/images/withdraw-beebet1.webp",
-          alt: "BeeBet",
-          mainLink: "How to withdraw money from Beebet quickly and securely",
+          image: '/images/withdraw-beebet1.webp',
+          alt: 'BeeBet',
+          mainLink: 'How to withdraw money from Beebet quickly and securely',
           subLinks: [
-            "Step-by-Step instructions to fund your BeeBet account",
-            "How to register on BeeBet: A Step-by-Step guide",
-            "BetOnline.ag withdrawal: How to cash out your winnings fast",
-            "Quick & Secure deposits on BetOnline.ag - Everything you need to know",
-          ],
-        },
-      ],
+            'Step-by-Step instructions to fund your BeeBet account',
+            'How to register on BeeBet: A Step-by-Step guide',
+            'BetOnline.ag withdrawal: How to cash out your winnings fast',
+            'Quick & Secure deposits on BetOnline.ag - Everything you need to know'
+          ]
+        }
+      ]
     },
     {
-      title: "Betting Experience",
+      title: 'Betting Experience',
       items: [
         {
-          image: "/images/withdraw-beebet2.webp",
-          alt: "Volume Betting",
-          mainLink: "Volume betting tips: How to read money flow to escape the bookmaker trap",
+          image: '/images/withdraw-beebet2.webp',
+          alt: 'Volume Betting',
+          mainLink:
+            'Volume betting tips: How to read money flow to escape the bookmaker trap',
           subLinks: [
-            "How to play series soccer tips - How to make $100 per day",
-            "Guide to bankroll management sports betting for beginners",
-            "What is a bonus bet in sports betting and how does it work?",
-            "Understanding negative odds and betting on the favorite",
-          ],
-        },
-      ],
+            'How to play series soccer tips - How to make $100 per day',
+            'Guide to bankroll management sports betting for beginners',
+            'What is a bonus bet in sports betting and how does it work?',
+            'Understanding negative odds and betting on the favorite'
+          ]
+        }
+      ]
     },
     {
-      title: "Betting News",
+      title: 'Betting News',
       items: [
         {
-          image: "/images/withdraw-beebet3.webp",
-          alt: "Cameroon Bookmakers",
-          mainLink: "Top 6 Cameroon betting sites best options for players",
+          image: '/images/withdraw-beebet3.webp',
+          alt: 'Cameroon Bookmakers',
+          mainLink: 'Top 6 Cameroon betting sites best options for players',
           subLinks: [
-            "List of top 5 Ivory Coast betting sites in 2025",
-            "Top 6 best betting sites in Tanzania you should know",
-            "Top 5 most reputable betting site Lebanon today",
-            "Discover the top 6 betting websites in Kosovo",
-          ],
-        },
-      ],
-    },
+            'List of top 5 Ivory Coast betting sites in 2025',
+            'Top 6 best betting sites in Tanzania you should know',
+            'Top 5 most reputable betting site Lebanon today',
+            'Discover the top 6 betting websites in Kosovo'
+          ]
+        }
+      ]
+    }
   ];
 
   return (
@@ -74,7 +75,7 @@ export default function BettingThreeInOneSection() {
                 href="#"
                 className="font-semibold text-black hover:text-[#60a5fa] block"
               >
-                {section.items[0].mainLink}
+                <h3>{section.items[0].mainLink}</h3>
               </Link>
               <hr />
               <ul className="text-sm space-y-1 text-gray-700">
@@ -95,7 +96,7 @@ export default function BettingThreeInOneSection() {
                       >
                         <path d="M9 6l6 6l-6 6"></path>
                       </svg>
-                      {subLink}
+                      <h3>{subLink}</h3>
                     </Link>
                   </li>
                 ))}
