@@ -1,6 +1,6 @@
+// app/page.tsx
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
 import Hero from '@/components/Hero';
 import FreeTips from '@/components/FreeTips';
 import Sidebar from '@/components/layout/Sidebar';
@@ -8,6 +8,8 @@ import Aids from '@/components/common/Aids';
 import PredectionList from '@/components/predection/PredectionList';
 import VideoHighlights from '@/components/videos/VideoHighlights';
 import BettingGENSection from '@/components/BettingGENSection';
+import { fetchHomeData } from './apis';
+import { getTranslations } from 'next-intl/server';
 
 const SectionHeader = ({ title, href }: { title: string; href: string }) => (
   <div className="flex items-center justify-between">
@@ -38,7 +40,6 @@ const SectionHeader = ({ title, href }: { title: string; href: string }) => (
 );
 
 export async function generateMetadata(): Promise<Metadata> {
-  // Placeholder for fetching real API data later
   const apiData = await fetchHomepageData();
 
   return {
@@ -94,7 +95,6 @@ export async function generateMetadata(): Promise<Metadata> {
 // Placeholder API fetch function (replace with your real endpoint)
 async function fetchHomepageData() {
   try {
-    // Simulate API call; replace with real endpoint like: await fetch('https://api.wintips.com/homepage').then(res => res.json());
     return {
       title: 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
       description: 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
@@ -109,20 +109,22 @@ async function fetchHomepageData() {
     };
   } catch (error) {
     console.error('Error fetching homepage data:', error);
-    return {}; // Fallback to default values
+    return {};
   }
 }
 
-export default function Home() {
-  const t = useTranslations();
+export default async function Home() {
+  const t = await getTranslations();
 
+  const [homepageData] = await Promise.all([fetchHomeData()]);
+  const heroData = 'error' in homepageData ? undefined : homepageData;
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main content */}
           <div className="lg:col-span-3 space-y-8">
-            <Hero />
+            <Hero data={heroData} /> {/* Pass homepageData to Hero */}
             <h2 className="text-2xl font-bold text-gray-900">
               {t('freeTipsTitle')}
             </h2>

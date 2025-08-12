@@ -1,7 +1,7 @@
 import { HomepageData } from '@/lib/types/homepage';
 const apiBaseUrl = process.env.API_DOMAIN;
 
-export async function fetchHomeDatas(): Promise<HomepageData | { error: string }> {
+export async function fetchHomeData(): Promise<HomepageData | { error: string }> {
 
   try {
     const res = await fetch(`${apiBaseUrl}/wp-json/get/page`, {
@@ -11,17 +11,15 @@ export async function fetchHomeDatas(): Promise<HomepageData | { error: string }
       },
       next: { revalidate: 30 }
     });
-    console.log("res",res)
     if (!res.ok) {
       return { error: `API request failed with status ${res.status}` };
     }
 
     const data = await res.json();
 
-    console.log("data123",data)
     return data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching homepage data:', error);
-    return { error: error?.message || 'Unknown error occurred' };
+    return { error: (error instanceof Error ? error.message : 'Unknown error occurred') };;
   }
 }
