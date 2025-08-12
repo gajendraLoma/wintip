@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import BigImageSection from "../../components/predection/BigImageSection";
 import PredectionList from "../../components/predection/PredectionList";
 import { getPredictions } from "@/app/apis/services/prediction";

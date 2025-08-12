@@ -1,7 +1,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import BigImageBlogSection from "@/components/blog/BigImageBlogSection";
 import GridViewSection from "@/components/blog/GridViewSection";
 import ListViewSection from "@/components/blog/ListViewSection";

@@ -384,7 +384,7 @@ export default function Sidebar() {
           </Link>
 
           <Link
-            href="premium-soccer-tips"
+            href="soccer-tips"
             className="reset-link flex items-center rounded-[5px] bg-[#f5f5f5] px-2 py-[10px] text-[15px] hover:bg-[#f2f9ff]"
           >
             <p className="m-0 flex h-[38px] w-[38px] items-center justify-center">

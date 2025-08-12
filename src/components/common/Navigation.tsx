@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
 import {useTranslations} from 'next-intl';
-import LocaleSwitcherMob from './LocaleSwitcherMob';
-import LocaleSwitcher from './LocaleSwitcher';
+import LocaleSwitcherMob from '../LocaleSwitcherMob';
+import LocaleSwitcher from '../LocaleSwitcher';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

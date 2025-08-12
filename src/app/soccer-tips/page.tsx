@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/layout/Sidebar';
 import {getPredictions} from '@/app/apis/services/prediction';
 import Link from 'next/link';
 import Image from 'next/image';

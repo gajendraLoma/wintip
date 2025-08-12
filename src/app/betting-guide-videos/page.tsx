@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import BigImageVideosSection from "@/components/videos/BigImageVideosSection";
 import BettingGuideVideosSection from "@/components/videos/BettingGuideVideosSection";
 import Pagination from "@/components/videos/Pagination";

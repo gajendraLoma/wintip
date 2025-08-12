@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Hero from '@/components/Hero';
 import FreeTips from '@/components/FreeTips';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/layout/Sidebar';
 import Aids from '@/components/common/Aids';
 import PredectionList from '@/components/predection/PredectionList';
 import VideoHighlights from '@/components/videos/VideoHighlights';

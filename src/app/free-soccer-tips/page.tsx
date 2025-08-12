@@ -1,6 +1,6 @@
 "use client";
 
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import FreeTips from "@/components/FreeTips";
 import Link from "next/link";
 export default function FreeSoccerTips() {

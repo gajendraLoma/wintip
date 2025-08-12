@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import Link from "next/link";
 import SeriesSection from "@/components/SeriesSection";
 import RecordSeriesSection from "@/components/RecordSeries";

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import Pagination from "@/components/videos/Pagination";
 
 export default function HotGirls() {
