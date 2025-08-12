@@ -349,35 +349,54 @@ export default function Sidebar() {
 
         <div className="p-3 space-y-2">
           <Link
-            href="#"
+            href="odds"
             className="reset-link flex items-center rounded-[5px] bg-[#f5f5f5] px-2 py-[10px] text-[15px] hover:bg-[#f2f9ff]"
           >
-  
-<p className="m-0 flex h-[38px] w-[38px] items-center justify-center">
-  <img src="/images/Vector-Smart-Object1.webp" alt="Drops Odds icon" loading="lazy" width="36" height="20"  className="h-5 w-5 object-contain" />
-</p>
-
+            <p className="m-0 flex h-[38px] w-[38px] items-center justify-center">
+              <img
+                src="/images/Vector-Smart-Object1.webp"
+                alt="Drops Odds icon"
+                loading="lazy"
+                width="36"
+                height="20"
+                className="h-5 w-5 object-contain"
+              />
+            </p>
 
             <h3>{t('dropsOdds')}</h3>
           </Link>
 
           <Link
-            href="#"
+            href="soccer-predictions"
             className="reset-link flex items-center rounded-[5px] bg-[#f5f5f5] px-2 py-[10px] text-[15px] hover:bg-[#f2f9ff]"
           >
-     <p className="m-0 flex h-[38px] w-[38px] items-center justify-center">
-  <img src="/images/Vector-Smart-Object2.webp" alt="Soccer Predictions icon" loading="lazy" width="36" height="20"  className="h-5 w-5 object-contain" />
-</p>
+            <p className="m-0 flex h-[38px] w-[38px] items-center justify-center">
+              <img
+                src="/images/Vector-Smart-Object2.webp"
+                alt="Soccer Predictions icon"
+                loading="lazy"
+                width="36"
+                height="20"
+                className="h-5 w-5 object-contain"
+              />
+            </p>
             <h3>{t('soccerPredictions')}</h3>
           </Link>
 
           <Link
-            href="#"
+            href="premium-soccer-tips"
             className="reset-link flex items-center rounded-[5px] bg-[#f5f5f5] px-2 py-[10px] text-[15px] hover:bg-[#f2f9ff]"
           >
-<p className="m-0 flex h-[38px] w-[38px] items-center justify-center">
-  <img src="/images/Vector-Smart-Object3.webp" alt="Soccer Tips icon" loading="lazy" width="36" height="20"  className="h-5 w-5 object-contain" />
-</p>
+            <p className="m-0 flex h-[38px] w-[38px] items-center justify-center">
+              <img
+                src="/images/Vector-Smart-Object3.webp"
+                alt="Soccer Tips icon"
+                loading="lazy"
+                width="36"
+                height="20"
+                className="h-5 w-5 object-contain"
+              />
+            </p>
             <h3>{t('soccerTips')}</h3>
           </Link>
         </div>
