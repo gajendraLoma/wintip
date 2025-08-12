@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 
 export default function Footer() {
   const t = useTranslations();
@@ -111,24 +110,7 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               {t('copyright')}
             </p>
-            <div className="flex m-auto justify-center gap-20 max-sm:gap-4 mt-4 w-[500px] max-sm:w-full max-sm:justify-start items-center footer_branch">
-              <div className="flex justify-center ml-auto h-[40px] w-[33%] max-[1000px]:h-[40px] max-[1000px]:w-[50px] max-[575px]:ml-0 max-[575px]:w-1/6">
-              <Image src="/images/gamstop.png" alt="GamStop" className="transition-all object-contain" width={100} height={40} />
-              </div>
-             
-            <div className="flex justify-center ml-auto h-[40px] w-[33%] max-[1000px]:h-[40px] max-[1000px]:w-[50px] max-[575px]:ml-0 max-[575px]:w-1/6">
-           <Image src="/images/begamble.png" alt="BeGamble Aware" className="transition-all object-contain" width={100} height={40} />
-            </div>
-
-            <div className="flex justify-center ml-auto h-[40px] w-[33%] max-[1000px]:h-[40px] max-[1000px]:w-[50px] max-[575px]:ml-0 max-[575px]:w-1/6">
-           <Image src="/images/problem.png" alt="18+" className="transition-all object-contain" width={100} height={40} />
-            </div>
-
-            <div className="flex justify-center ml-auto h-[40px] w-[33%] max-[1000px]:h-[40px] max-[1000px]:w-[50px] max-[575px]:ml-0 max-[575px]:w-1/6">
-           <Image src="/images/dmca_protected_sml_120n.png" alt="DMCA Protected" className="transition-all object-contain" width={100} height={40} />
-            </div>
-
-            </div>
+        
           </div>
         </div>
       </div>

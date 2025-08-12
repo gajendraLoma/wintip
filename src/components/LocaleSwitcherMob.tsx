@@ -48,7 +48,7 @@ export default function LocaleSwitcher() {
     <div className="relative flex items-center justify-center" ref={dropdownRef}>
        
       <div
-        className="dropdown"
+        className="dropdown-mob"
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setIsOpen(false)}
       >
@@ -58,11 +58,11 @@ export default function LocaleSwitcher() {
         className='object-cover'
         />
       </div>
-      <div className="dropdown-options">
+      <div className="dropdown-options-mob">
         {languages && languages.map((lang) => (
           <div
             key={lang.code}
-            className="dropdown-option"
+            className="dropdown-option-mob"
             style={{ backgroundImage: `url(${flagMap[lang.code]})` }}
             onClick={() => handleLocaleChange(lang.code)}
           >
@@ -73,7 +73,7 @@ export default function LocaleSwitcher() {
 
 
  <style >{`
-        .dropdown {
+        .dropdown-mob {
           position: relative;
           width: 32px;
           height: 32px;
@@ -85,7 +85,7 @@ export default function LocaleSwitcher() {
           align-items: center;
           transition: all 0.2s ease;
         }
-        .dropdown img {
+        .dropdown-mob img {
           width: 22px;
           height: 22px;
           position: absolute;
@@ -95,7 +95,7 @@ export default function LocaleSwitcher() {
           border-radius: 100px;
           object-fit: cover;
         }
-        .dropdown-options {
+        .dropdown-options-mob {
           position: absolute;
           top: 35px;
           right: -45px;
@@ -120,7 +120,7 @@ export default function LocaleSwitcher() {
             transform: translateY(0);
           }
         }
-        .dropdown-option {
+        .dropdown-option-mob {
           padding: 8px 10px 8px 35px;
           color: #000;
           background-repeat: no-repeat;
@@ -131,13 +131,33 @@ export default function LocaleSwitcher() {
           align-items: center;
           transition: background-color 0.2s ease;
         }
-        .dropdown-option img {
+        .dropdown-option-mob img {
           margin-right: 8px;
         }
 
+@media(max-width:678px){
+     .dropdown-mob img {
+      width: 18px;
+      height: 18px;
+      }
+
+        .dropdown-mob {
+          position: relative;
+          width: 28px;
+          height: 28px;
+           }
+
+        .dropdown-options-mob {
+          position: absolute;
+          top: 32px;
+          right: -28px; 
+        }
+
+}
 
 
-      
+
+
       `}</style>
 
     </div>

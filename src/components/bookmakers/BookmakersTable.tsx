@@ -306,7 +306,7 @@ export default function BookmakersTable() {
                     <td className="p-3 text-center">
                       <a
                         href="#"
-                        className="flex items-center text-sm justify-center rounded-full bg-[#eaf4ff] max-md:px-[10px] max-md:py-[5px] max-xl:px-[10px] max-lg:w-max px-[40px] py-[5px] text-[#1877f2] transition-all duration-300 hover:bg-[#1877f2] hover:text-white"
+                        className="flex items-center text-sm justify-center rounded-full bg-[#eaf4ff] max-md:px-[10px] max-md:py-[5px] max-xl:px-[10px] max-lg:w-max py-[5px] text-[#1877f2] transition-all duration-300 hover:bg-[#1877f2] hover:text-white"
                       >
                         {t('visitSite')}
                       </a>

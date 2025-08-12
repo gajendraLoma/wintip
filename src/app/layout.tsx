@@ -4,10 +4,8 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import './globals.css';
-
-import TopHeader from '@/components/TopHeader';
 import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer'
+import Footer from '@/components/Footer';
 const inter = Inter({subsets: ['latin']});
 
 type Props = {
@@ -26,13 +24,10 @@ export default async function LocaleLayout({children}: Props) {
         )}
       >
         <NextIntlClientProvider>
-   
-        <TopHeader />
-       <Navigation />
-          <main>{children}</main> 
+          <Navigation />
+          <main>{children}</main>
           <Footer />
-
-          </NextIntlClientProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
