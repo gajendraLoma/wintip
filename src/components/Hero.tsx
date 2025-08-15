@@ -1,4 +1,3 @@
-// components/Hero.tsx
 'use client';
 
 import { useTranslations } from 'next-intl';
@@ -8,34 +7,51 @@ import Link from 'next/link';
 interface HeroProps {
   data?: {
     title?: string;
-    description?: string;
+    content?: string;
+    image?: string;
+    banner_top?: {
+      title: string;
+      description: string;
+      image: string;
+      link: string;
+    };
   };
 }
 
 export default function Hero({ data }: HeroProps) {
   const t = useTranslations();
 
+
+  if (!data?.banner_top || 
+      !data.banner_top.title || 
+      !data.banner_top.description || 
+      !data.banner_top.image || 
+      !data.banner_top.link) {
+    return null; 
+  }
+
+
+  const { title, description, image, link } = data.banner_top;
+
   return (
     <section className="relative overflow-hidden">
       <div className="relative w-full overflow-hidden rounded-[5px] h-[280px] md:p-[35px] md:h-[280px]">
         <Image
-          src="/images/Banner-Home-Page4.webp"
-          alt="home top banner"
-          className=""
+          src={image}
+          alt={title}
           fill
         />
-
         <div className="absolute md:relative top-0 z-20 max-w-[550px] p-[10px] md:p-0 text-white">
           <h1 className="text-[19px] font-semibold uppercase leading-[25px]">
-            {data?.title || t('heroTitle')}
+            {title}
           </h1>
           <div className="text-justify text-sm mt-2">
-            <p>{data?.description || t('heroDescription')}</p>
+            <p>{description}</p>
           </div>
 
           <div>
             <Link
-              href="https://wintips.com/redirect?callbackUrl=/soccer-tips"
+              href={link}
               target="_blank"
               className="group relative inline-flex items-center gap-5 mb-10 mt-5 h-[35px] w-[190px] justify-center rounded-full font-bold text-base shadow-lg text-white transition-all duration-200 overflow-hidden"
               style={{

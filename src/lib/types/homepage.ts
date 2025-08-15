@@ -1,4 +1,10 @@
-// lib/types/homepage.ts
+export interface CategoryItem {
+  title: string;
+  featured_image: string;
+  slug: string;
+  published_date: string;
+}
+
 export interface HomepageData {
   title: string;
   seo_title: string;
@@ -19,9 +25,10 @@ export interface HomepageData {
     right_url: string;
     right_image: string;
   };
-  category_left: string[];
-  category_middle_data: string[];
-  // Add other fields as needed based on the full JSON structure
+  category_left: CategoryItem[];
+  category_middle_data: CategoryItem[];
+  category_right_data: CategoryItem[];
 }
+
 
 export type ApiResponse = HomepageData | { error: string };

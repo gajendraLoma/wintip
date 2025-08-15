@@ -86,8 +86,8 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     icons: [
-      { url: '/logo32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/images/bk88.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/bk88.png', sizes: '192x192', type: 'image/png' },
     ],
   };
 }
@@ -116,25 +116,25 @@ async function fetchHomepageData() {
 export default async function Home() {
   const t = await getTranslations();
 
-  const [homepageData] = await Promise.all([fetchHomeData()]);
-  const heroData = 'error' in homepageData ? undefined : homepageData;
+  const [HomeAllSectionData] = await Promise.all([fetchHomeData()]);
+  const HomeData = 'error' in HomeAllSectionData ? undefined : HomeAllSectionData;
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main content */}
           <div className="lg:col-span-3 space-y-8">
-            <Hero data={heroData} /> {/* Pass homepageData to Hero */}
+            <Hero data={HomeData} />
             <h2 className="text-2xl font-bold text-gray-900">
               {t('freeTipsTitle')}
             </h2>
             <FreeTips />
-            <Aids />
+            <Aids data={HomeData} />
             <SectionHeader title={t('predictionsTitle')} href="/soccer-predictions/" />
             <PredectionList />
             <SectionHeader title={t('highlightsTitle')} href="/football-highlights/" />
             <VideoHighlights />
-            <BettingGENSection />
+            <BettingGENSection data={HomeData} />
           </div>
 
           {/* Sidebar */}
