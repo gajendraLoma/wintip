@@ -40,16 +40,18 @@ export default function Sidebar() {
       {/* Top Bookmakers */}
       <div className="bg-white rounded-lg shadow-sm overflow-hidden bookMakersSidebar">
         <div className="bg-white py-2 border-b">
-          <h3 className="font-bold text-gray-900 flex items-center">
-            <Image
-              src="/svg/ChevronRight.svg"
-              alt="Chevron"
-              className="mr-1"
-              width={20}
-              height={20}
-            />
-            {t('topBookmakers')}
-          </h3>
+          <Link href="/bookmakers">
+            <h3 className="font-bold text-gray-900 flex items-center">
+              <Image
+                src="/svg/ChevronRight.svg"
+                alt="Chevron"
+                className="mr-1"
+                width={20}
+                height={20}
+              />
+              {t('topBookmakers')}
+            </h3>
+          </Link>
         </div>
         <div className="p-2 space-y-3">
           {isLoading
@@ -152,16 +154,18 @@ export default function Sidebar() {
       {/* Sports News */}
       <div className="bg-white rounded-lg shadow-sm overflow-hidden">
         <div className="bg-white py-2 border-b">
-          <h3 className="font-bold text-gray-900 flex items-center">
-            <Image
-              src="/svg/ChevronRight.svg"
-              alt="Chevron"
-              className="mr-1"
-              width={20}
-              height={20}
-            />
-            {t('sportsNews')}
-          </h3>
+          <Link href="/football-videos">
+            <h3 className="font-bold text-gray-900 flex items-center">
+              <Image
+                src="/svg/ChevronRight.svg"
+                alt="Chevron"
+                className="mr-1"
+                width={20}
+                height={20}
+              />
+              {t('sportsNews')}
+            </h3>
+          </Link>
         </div>
         <div className="p-2 space-y-4">
           {isLoading
@@ -197,16 +201,18 @@ export default function Sidebar() {
       {/* Betting Tool */}
       <div className="bg-white rounded-lg shadow-sm overflow-hidden">
         <div className="bg-white py-2 border-b">
-          <h3 className="font-bold text-gray-900 flex items-center">
-            <Image
-              src="/svg/ChevronRight.svg"
-              alt="Chevron"
-              className="mr-1"
-              width={20}
-              height={20}
-            />
-            {t('bettingTool')}
-          </h3>
+          <Link href="/">
+            <h3 className="font-bold text-gray-900 flex items-center">
+              <Image
+                src="/svg/ChevronRight.svg"
+                alt="Chevron"
+                className="mr-1"
+                width={20}
+                height={20}
+              />
+              {t('bettingTool')}
+            </h3>
+          </Link>
         </div>
         <div className="p-2 space-y-2">
           {isLoading
