@@ -80,7 +80,7 @@ module.exports = {
   // existing other animations
   zoomPulse: {
     '0%, 100%': { transform: 'scale(1)' },
-    '50%': { transform: 'scale(1.08)' },
+    '50%': { transform: 'scale(1.04)' },
   },
   },
        animation: {

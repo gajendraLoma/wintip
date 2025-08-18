@@ -519,3 +519,38 @@
   color: #1959fd;
   margin-left: 5px;
 }
+
+
+
+/* Top Bookmakers Sidenav */
+
+.bookMakersSidebar .contentDiv{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.bookMakersSidebar .contentDiv p {
+   font-weight: 400;
+}
+
+.bookMakersSidebar .contentDiv strong {
+   font-weight: 400;
+   font-size: 10px;
+}
+
+.bookMakersSidebar .contentDiv .text-base {
+    line-height: normal;
+    font-size: 10px;
+}
+
+.bookMakersSidebar .contentDiv .font-bold {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: normal;
+}
+
+.bookMakersSidebar .contentDiv span {
+    font-weight: 400;
+    font-size: 10px;
+}
