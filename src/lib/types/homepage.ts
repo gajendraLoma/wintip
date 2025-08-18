@@ -25,10 +25,7 @@ export interface HomepageData {
     right_url: string;
     right_image: string;
   };
-  category_left: CategoryItem[];
-  category_middle_data: CategoryItem[];
-  category_right_data: CategoryItem[];
+  category_left: { name: string; post: CategoryItem[] };
+  category_middle: { name: string; post: CategoryItem[] }; 
+  category_right: { name: string; post: CategoryItem[] };
 }
-
-
-export type ApiResponse = HomepageData | { error: string };

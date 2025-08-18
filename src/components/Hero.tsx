@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import {useTranslations} from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -18,29 +18,25 @@ interface HeroProps {
   };
 }
 
-export default function Hero({ data }: HeroProps) {
+export default function Hero({data}: HeroProps) {
   const t = useTranslations();
 
-
-  if (!data?.banner_top || 
-      !data.banner_top.title || 
-      !data.banner_top.description || 
-      !data.banner_top.image || 
-      !data.banner_top.link) {
-    return null; 
+  if (
+    !data?.banner_top ||
+    !data.banner_top.title ||
+    !data.banner_top.description ||
+    !data.banner_top.image ||
+    !data.banner_top.link
+  ) {
+    return null;
   }
 
-
-  const { title, description, image, link } = data.banner_top;
+  const {title, description, image, link} = data.banner_top;
 
   return (
     <section className="relative overflow-hidden">
       <div className="relative w-full overflow-hidden rounded-[5px] h-[280px] md:p-[35px] md:h-[280px]">
-        <Image
-          src={image}
-          alt={title}
-          fill
-        />
+        <Image src={image} alt={title} fill />
         <div className="absolute md:relative top-0 z-20 max-w-[550px] p-[10px] md:p-0 text-white">
           <h1 className="text-[19px] font-semibold uppercase leading-[25px]">
             {title}
@@ -55,15 +51,17 @@ export default function Hero({ data }: HeroProps) {
               target="_blank"
               className="group relative inline-flex items-center gap-5 mb-10 mt-5 h-[35px] w-[190px] justify-center rounded-full font-bold text-base shadow-lg text-white transition-all duration-200 overflow-hidden"
               style={{
-                background: 'linear-gradient(rgb(0, 102, 204) 0%, rgb(0, 82, 163) 50%, rgb(0, 61, 122) 100%)',
-                border: '2px solid rgb(77, 148, 255)',
+                background:
+                  'linear-gradient(rgb(0, 102, 204) 0%, rgb(0, 82, 163) 50%, rgb(0, 61, 122) 100%)',
+                border: '2px solid rgb(77, 148, 255)'
               }}
             >
               <div
                 className="absolute top-0 left-0 right-0 rounded-full pointer-events-none"
                 style={{
                   height: '50%',
-                  background: 'linear-gradient(rgba(255, 255, 255, 0.3) 0%, transparent 100%)',
+                  background:
+                    'linear-gradient(rgba(255, 255, 255, 0.3) 0%, transparent 100%)'
                 }}
               ></div>
               <div className="flex items-center justify-center relative z-10 pb-[3px]">
@@ -71,7 +69,7 @@ export default function Hero({ data }: HeroProps) {
                   className="w-6 h-6 rounded-full shadow-sm flex items-center justify-center transition-transform duration-1000 group-hover:scale-125 animate-pulse"
                   style={{
                     backgroundColor: 'rgb(37, 99, 235)',
-                    border: '1px solid rgb(96, 165, 250)',
+                    border: '1px solid rgb(96, 165, 250)'
                   }}
                 >
                   <svg
@@ -92,7 +90,7 @@ export default function Hero({ data }: HeroProps) {
                 <span
                   className="ml-3 pt-[2px]"
                   style={{
-                    textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px',
+                    textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px 2px'
                   }}
                 >
                   {t('joinNow')}

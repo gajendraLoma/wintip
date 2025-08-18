@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { getFullImageUrl } from '@/lib/utils';
 
 interface CategoryItem {
   title: string;
@@ -11,59 +12,75 @@ interface CategoryItem {
   published_date: string;
 }
 
+interface Category {
+  name: string;
+  post: CategoryItem[];
+}
+
 interface BettingThreeInOneSectionProps {
   data?: {
-    category_left?: CategoryItem[];
-    category_middle_data?: CategoryItem[];
-    category_right_data?: CategoryItem[];
+    category_left?: Category;
+    category_middle?: Category;
+    category_right?: Category;
   };
 }
 
 export default function BettingThreeInOneSection({ data }: BettingThreeInOneSectionProps) {
   const t = useTranslations();
-const ImgBaseUrl = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
-console.log("ImgBaseUrl",ImgBaseUrl)
-  const hasValidData = (category?: CategoryItem[]): category is CategoryItem[] =>
-    Array.isArray(category) && category.length > 0 && category.every(item =>
-      item.title && item.featured_image && item.slug && item.published_date
+
+  // Validate category data
+  const hasValidData = (category?: Category): category is Category =>
+    !!category &&
+    Array.isArray(category.post) &&
+    category.post.length > 0 &&
+    category.post.every(
+      (item) => item.title && item.featured_image && item.slug && item.published_date
     );
 
+  // Define sections with category name and posts
   const sections = [
     {
-      title: t('bettingGuide'),
-      items: hasValidData(data?.category_left) ? data.category_left : null,
+      title: data?.category_left?.name,
+      items: hasValidData(data?.category_left) ? data.category_left.post : null,
     },
     {
-      title: t('bettingExperience'),
-      items: hasValidData(data?.category_middle_data) ? data.category_middle_data : null,
+      title: data?.category_middle?.name,
+      items: hasValidData(data?.category_middle) ? data.category_middle.post : null,
     },
     {
-      title: t('bettingNews'),
-      items: hasValidData(data?.category_right_data) ? data.category_right_data : null,
+      title: data?.category_right?.name,
+      items: hasValidData(data?.category_right) ? data.category_right.post : null,
     },
-  ].filter((section): section is { title: string; items: CategoryItem[] } => section.items !== null);
+  ].filter((section): section is { title: string; items: CategoryItem[] } => {
+    if (section.items === null) {
+      console.warn(`Section "${section.title}" has invalid or missing data`);
+      return false;
+    }
+    return true;
+  });
 
+  // If no valid sections, return null
   if (sections.length === 0) {
-    return null; 
+    console.warn('No valid sections to render in Betting Section');
+    return null;
   }
 
   return (
-    <div className="">
+    <div className="py-8">
       <div className="grid gap-10 md:grid-cols-3">
         {sections.map((section, index) => {
-        const featuredImage= ImgBaseUrl + section.items[0].featured_image
-
-        console.log("featuredImage",featuredImage)
-         return(
-          <div key={index}>
-            <h2 className="text-xl font-bold mb-4">{section.title}</h2>
-            <div className="space-y-4">
+          const featuredImage = getFullImageUrl(section.items[0].featured_image);
+       
+          return (            
+          <div key={index} className="space-y-4">
+              <h2 className="text-xl font-bold mb-4">{section.title}</h2>
               <div className="relative h-48 w-full transition-transform duration-300 hover:scale-[1.03]">
                 <Image
                   src={featuredImage}
                   alt={section.items[0].title}
                   fill
                   className="object-cover rounded"
+                  onError={() => console.error(`Failed to load image: ${featuredImage}`)}
                 />
               </div>
               <Link
@@ -89,18 +106,16 @@ console.log("ImgBaseUrl",ImgBaseUrl)
                         strokeLinejoin="round"
                         className="mt-1 shrink-0"
                       >
-                        <path d="M9 6l6 6l-6 6"></path>
+                        <path d="M9 6l6 6l-6 6" />
                       </svg>
-                      <h3>{item.title}</h3>
+                      <h3 className="ml-2">{item.title}</h3>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-
-       )}
-        )}
+          );
+        })}
       </div>
     </div>
   );
