@@ -6,11 +6,6 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
     reactStrictMode: false,
     devIndicators: false,
-
-    env: {
-      API_DOMAIN: "https://theme.168dev.com",
-      SITE_NAME: "DollarsWinTips"
-    },
     images: {
       dangerouslyAllowSVG: true,
       contentDispositionType: "attachment",
@@ -27,6 +22,19 @@ const nextConfig = {
     },
     eslint: {
       ignoreDuringBuilds: true,
+    },
+    async rewrites() {
+    return [
+      {
+        source: '/api/tips/:path*',
+        destination: `${process.env.WINTIPS_DOMAIN}/wp-json/get/tips/:path*`,
+      },
+    ];
+  },
+    env: {
+      API_DOMAIN: "https://theme.168dev.com",
+      WINTIPS_DOMAIN: "https://wintips.com",
+      SITE_NAME: "DollarsWinTips"
     },
   };
 

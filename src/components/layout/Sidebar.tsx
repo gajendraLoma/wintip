@@ -28,7 +28,7 @@ export default function Sidebar() {
     loadData();
   }, []);
 
-  console.log('Sidebar data:', sidebarData);
+
 
   if (error) {
     console.error(error);

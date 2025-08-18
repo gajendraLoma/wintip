@@ -1,27 +1,24 @@
 // apis/tips.ts
-import { ApiResponse, TipsResponse } from '@/lib/types/tips';
+import { TipsResponse } from '@/lib/types/tips';
 
-const apiBaseUrl = process.env.API_DOMAIN;
+const winTipBaseUrl = process.env.WINTIPS_DOMAIN;
 
-export async function fetchTipsData(page: number = 1, limit: number = 15): Promise<ApiResponse> {
+export async function fetchTipsData(page: number = 1, limit: number = 15): Promise<TipsResponse | { data: null; error: string }> {
   try {
-    const res = await fetch(`${apiBaseUrl}/api/tips/?page=${page}&limit=${limit}`, {
+    const res = await fetch(`${winTipBaseUrl}/api/tips/?page=${page}&limit=${limit}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
       next: { revalidate: 30 },
     });
-    console.log('res', res);
     if (!res.ok) {
-      return { error: `API request failed with status ${res.status}` };
+      throw new Error(`API request failed with status ${res.status}: ${res.statusText}`);
     }
-
-    const data = await res.json();
-    console.log('data123', data);
-    return data;
+    const data: TipsResponse = await res.json();
+    return  data ;
   } catch (error: unknown) {
-    console.error('Error fetching tips data:', error);
-    return { error: (error instanceof Error ? error.message : 'Unknown error occurred') };
+    console.error('Detailed error in fetchTipsData:', error);
+    return { data: null, error: (error instanceof Error ? error.message : 'Unknown error occurred') };
   }
 }

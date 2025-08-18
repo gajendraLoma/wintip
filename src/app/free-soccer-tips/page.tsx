@@ -1,9 +1,13 @@
-"use client";
-
+// app/free-soccer-tips/page.tsx
 import Sidebar from "@/components/layout/Sidebar";
-import FreeTips from "@/components/FreeTips";
+import FreeTipsComp from "@/components/FreeTipsComp";
 import Link from "next/link";
-export default function FreeSoccerTips() {
+import { fetchTipsData } from "@/app/apis";
+
+export default async function FreeSoccerTips() {
+  const response = await fetchTipsData(1, 15);
+  const initialTips = ('error' in response) ? null : response;
+  const totalPages = ('error' in response) ? 1 : response.meta.totalPages;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -13,7 +17,7 @@ export default function FreeSoccerTips() {
             <div className="bg-white px-4 md:px-8 py-6 max-w-[1280px] mx-auto">
               {/* Breadcrumb */}
               <nav className="flex text-sm text-gray-500 mb-2">
-                  <Link href="/" className="text-blue-600 hover:underline">
+                <Link href="/" className="text-blue-600 hover:underline">
                   Wintips
                 </Link>
                 <svg
@@ -46,11 +50,11 @@ export default function FreeSoccerTips() {
                 sources...
               </p>
 
-              {/* FILTER BAR */}
-            
-
               {/* TIPS TABLE */}
-              <FreeTips />
+              <FreeTipsComp
+                initialTips={initialTips}
+                totalPages={totalPages}
+              />
 
               {/* COMPILATION */}
               <div className="mt-8">

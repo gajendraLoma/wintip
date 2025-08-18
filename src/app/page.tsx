@@ -1,17 +1,17 @@
 // app/page.tsx
-import { Metadata } from 'next';
+import {Metadata} from 'next';
 import Link from 'next/link';
 import Hero from '@/components/Hero';
-import FreeTips from '@/components/FreeTips';
+import HomeFreeTips from '@/components/HomeFreeTips';
 import Sidebar from '@/components/layout/Sidebar';
 import Aids from '@/components/common/Aids';
 import PredectionList from '@/components/predection/PredectionList';
 import VideoHighlights from '@/components/videos/VideoHighlights';
 import BettingGENSection from '@/components/BettingGENSection';
-import { fetchHomeData } from './apis';
-import { getTranslations } from 'next-intl/server';
+import {fetchHomeData, fetchTipsData} from './apis';
+import {getTranslations} from 'next-intl/server';
 
-const SectionHeader = ({ title, href }: { title: string; href: string }) => (
+const SectionHeader = ({title, href}: {title: string; href: string}) => (
   <div className="flex items-center justify-between">
     <h2 className="text-2xl font-bold final text-gray-900 hover:text-blue-hover transition-all">
       {title}
@@ -43,52 +43,68 @@ export async function generateMetadata(): Promise<Metadata> {
   const apiData = await fetchHomepageData();
 
   return {
-    title: apiData?.title || 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
-    description: apiData?.description || 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
+    title:
+      apiData?.title ||
+      'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
+    description:
+      apiData?.description ||
+      "A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world's number one bookmakers.",
     robots: {
       index: true,
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1,
+      'max-snippet': -1
     },
     viewport: {
       width: 'device-width',
       initialScale: 1,
       minimumScale: 1,
-      userScalable: false,
+      userScalable: false
     },
     openGraph: {
-      title: apiData?.ogTitle || 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
-      description: apiData?.ogDescription || 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
+      title:
+        apiData?.ogTitle ||
+        'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
+      description:
+        apiData?.ogDescription ||
+        "A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world's number one bookmakers.",
       images: [
         {
-          url: apiData?.ogImage || 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+          url:
+            apiData?.ogImage ||
+            'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
           width: 800,
           height: 600,
-          alt: apiData?.ogImageAlt || 'wintips.com',
-        },
+          alt: apiData?.ogImageAlt || 'wintips.com'
+        }
       ],
       url: 'https://wintips.com/',
-      type: 'website',
+      type: 'website'
     },
     twitter: {
       card: 'summary_large_image',
-      title: apiData?.twitterTitle || 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
-      description: apiData?.twitterDescription || 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
+      title:
+        apiData?.twitterTitle ||
+        'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
+      description:
+        apiData?.twitterDescription ||
+        "A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world's number one bookmakers.",
       images: [
         {
-          url: apiData?.twitterImage || 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+          url:
+            apiData?.twitterImage ||
+            'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
           width: 800,
           height: 600,
-          alt: apiData?.twitterImageAlt || 'wintips.com',
-        },
-      ],
+          alt: apiData?.twitterImageAlt || 'wintips.com'
+        }
+      ]
     },
     icons: [
-      { url: '/images/bk88.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/bk88.png', sizes: '192x192', type: 'image/png' },
-    ],
+      {url: '/images/bk88.png', sizes: '32x32', type: 'image/png'},
+      {url: '/images/bk88.png', sizes: '192x192', type: 'image/png'}
+    ]
   };
 }
 
@@ -96,16 +112,24 @@ export async function generateMetadata(): Promise<Metadata> {
 async function fetchHomepageData() {
   try {
     return {
-      title: 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
-      description: 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
-      ogTitle: 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
-      ogDescription: 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
-      ogImage: 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+      title:
+        'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
+      description:
+        "A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world's number one bookmakers.",
+      ogTitle:
+        'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
+      ogDescription:
+        "A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world's number one bookmakers.",
+      ogImage:
+        'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
       ogImageAlt: 'wintips.com',
-      twitterTitle: 'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
-      twitterDescription: 'A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world\'s number one bookmakers.',
-      twitterImage: 'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
-      twitterImageAlt: 'wintips.com',
+      twitterTitle:
+        'Wintips.com - The world’s leading site for soccer tips, predictions, and bookmaker odds insights.',
+      twitterDescription:
+        "A specialized website for reviewing bookmakers, sharing betting experiences, giving football predictions, and providing links to the world's number one bookmakers.",
+      twitterImage:
+        'https://static.wintips.com/images/wintips-page/10-9-2024/Avata-wintips1.jpg',
+      twitterImageAlt: 'wintips.com'
     };
   } catch (error) {
     console.error('Error fetching homepage data:', error);
@@ -116,8 +140,13 @@ async function fetchHomepageData() {
 export default async function Home() {
   const t = await getTranslations();
 
-  const [HomeAllSectionData] = await Promise.all([fetchHomeData()]);
-  const HomeData = 'error' in HomeAllSectionData ? undefined : HomeAllSectionData;
+  const [HomeAllSectionData, tipsData] = await Promise.all([
+    fetchHomeData(),
+    fetchTipsData(1, 15)
+  ]);
+  const HomeData =
+    'error' in HomeAllSectionData ? undefined : HomeAllSectionData;
+  const tips = 'error' in tipsData ? null : tipsData;
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -128,11 +157,17 @@ export default async function Home() {
             <h2 className="text-2xl font-bold text-gray-900">
               {t('freeTipsTitle')}
             </h2>
-            <FreeTips />
+            <HomeFreeTips tips={tips} />
             <Aids data={HomeData} />
-            <SectionHeader title={t('predictionsTitle')} href="/soccer-predictions/" />
+            <SectionHeader
+              title={t('predictionsTitle')}
+              href="/soccer-predictions/"
+            />
             <PredectionList />
-            <SectionHeader title={t('highlightsTitle')} href="/football-highlights/" />
+            <SectionHeader
+              title={t('highlightsTitle')}
+              href="/football-highlights/"
+            />
             <VideoHighlights />
             <BettingGENSection data={HomeData} />
           </div>
