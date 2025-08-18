@@ -178,7 +178,7 @@ export default function Sidebar() {
                 </div>
               ))
             : sidebarData?.post.map((post: Post, index: number) => (
-                <div key={index} className="flex space-x-3 group">
+                <Link href={post?.slug} key={index} className="flex space-x-3 group">
                   <div className="relative flex-shrink-0">
                     <Image
                       src={getFullImageUrl(post.image)}
@@ -193,7 +193,7 @@ export default function Sidebar() {
                       {post.title}
                     </h3>
                   </div>
-                </div>
+                </Link>
               ))}
         </div>
       </div>
